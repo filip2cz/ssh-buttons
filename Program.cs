@@ -82,7 +82,15 @@ while (input != "0")
     Debug.WriteLine($"config.Length = {config.Length}");
     Debug.WriteLine($"inputMaxLenght = {inputMaxLenght}");
 
-    if (input == "0")
+    if (input == "")
+    {
+        input = "0";
+    }
+    else if (!(int.TryParse(input, out int number)) || int.Parse(input) > inputMaxLenght)
+    {
+        Console.WriteLine("Invalid command");
+    }
+    else if (input == "0")
     {
         Console.WriteLine("Exiting");
         Debug.WriteLine("Exiting");
@@ -95,10 +103,6 @@ while (input != "0")
         Console.WriteLine(output);
         Console.WriteLine("------------------------");
     }
-    else if (int.Parse(input) > inputMaxLenght)
-    {
-        Console.WriteLine("Invalid command");
-    }
 }
 static string ShowStars()
 {
@@ -109,12 +113,20 @@ static string ShowStars()
     {
         key = Console.ReadKey(true);
 
-        if (key.Key != ConsoleKey.Enter)
+        if (key.Key == ConsoleKey.Backspace)
+        {
+            // Pokud je stisknuta klávesa Backspace, smaž poslední znak
+            if (password.Length > 0)
+            {
+                password = password.Substring(0, password.Length - 1);
+                Console.Write("\b \b"); // Smaž znak na obrazovce
+            }
+        }
+        else if (!char.IsControl(key.KeyChar))
         {
             password += key.KeyChar;
             Console.Write("*");
         }
-
     } while (key.Key != ConsoleKey.Enter);
 
     return password;
