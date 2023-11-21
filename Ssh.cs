@@ -20,14 +20,8 @@ namespace ssh_buttons_console_demo
             {
                 try
                 {
-                    // Připojení k SSH serveru
                     client.Connect();
 
-                    Debug.WriteLine("připojeno (asi)");
-
-                    // Zde můžete provádět operace na SSH serveru
-
-                    // Příklad: Výpis aktuálního adresáře
                     var runCommand = client.RunCommand(command);
                     output = "Output: " + runCommand.Result;
                     Debug.WriteLine($"Output: {output}");
@@ -39,7 +33,6 @@ namespace ssh_buttons_console_demo
                 }
                 finally
                 {
-                    // Uzavření připojení
                     if (client.IsConnected)
                     {
                         client.Disconnect();
