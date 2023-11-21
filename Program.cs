@@ -99,40 +99,6 @@ while (input != "0")
     {
         Console.WriteLine("Invalid command");
     }
-
-    /*if (input == "0")
-    {
-        Console.WriteLine("Exiting");
-    }
-    else if (input == "1")
-    {
-        Console.Clear();
-        Console.WriteLine("Running command");
-        output = ssh.Command(hostname, username, password, config[3]);
-        Console.WriteLine(output);
-        Console.WriteLine("------------------------");
-    }
-    else if (input == "2")
-    {
-        Console.Clear();
-        Console.WriteLine("Running command");
-        output = ssh.Command(hostname, username, password, config[5]);
-        Console.WriteLine(output);
-        Console.WriteLine("------------------------");
-    }
-    else if (input == "3")
-    {
-        Console.Clear();
-        Console.WriteLine("Running command");
-        output = ssh.Command(hostname, username, password, config[7]);
-        Console.WriteLine(output);
-        Console.WriteLine("------------------------");
-    }
-    else
-    {
-        Console.WriteLine("Invalid command");
-    }
-    */
 }
 static string ShowStars()
 {

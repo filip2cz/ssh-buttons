@@ -43,15 +43,6 @@ namespace ssh_buttons_console_demo
 
                 return loadedCommands;
             }
-
-            /*
-            string[] loadedCommands = new string[] {
-                "askUser", "askUser",
-                "Create file test.txt","touch test.txt",
-                "Delete file test.txt", "rm test.txt"
-            };
-            return loadedCommands;
-            */
         }
     }
 }
