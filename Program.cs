@@ -115,11 +115,10 @@ static string ShowStars()
 
         if (key.Key == ConsoleKey.Backspace)
         {
-            // Pokud je stisknuta klávesa Backspace, smaž poslední znak
             if (password.Length > 0)
             {
                 password = password.Substring(0, password.Length - 1);
-                Console.Write("\b \b"); // Smaž znak na obrazovce
+                Console.Write("\b \b");
             }
         }
         else if (!char.IsControl(key.KeyChar))
