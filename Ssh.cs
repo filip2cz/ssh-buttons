@@ -1,46 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Renci.SshNet;
+using System;
 using System.Diagnostics;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using Renci.SshNet;
-using SshNet;
 
-namespace ssh_buttons_console_demo
+public class Ssh
 {
-    public partial class Ssh
+    private SshClient _client;
+
+    public Ssh(string host, string username, string password)
     {
-        public string Command(string hostname, string username, string password, string command)
+        _client = new SshClient(host, username, password);
+    }
+
+    public async Task<string> ExecuteCommand(string command, string password)
+    {
+        _client.Connect();
+
+        using (var shell = _client.CreateShellStream("xterm", 80, 24, 800, 600, 1024))
+        using (var reader = new StreamReader(shell, Encoding.UTF8))
         {
-            ConnectionInfo connectionInfo = new ConnectionInfo(hostname, username, new PasswordAuthenticationMethod(username, password));
-            string output = string.Empty;
+            shell.WriteLine(command);
 
-            using (var client = new SshClient(connectionInfo))
+            await Task.Delay(1000);
+
+            shell.WriteLine(password);
+
+            string output = await reader.ReadToEndAsync();
+            Debug.WriteLine(output);
+
+            if (output.Contains("password:", StringComparison.OrdinalIgnoreCase))
             {
-                try
-                {
-                    client.Connect();
-
-                    var runCommand = client.RunCommand(command);
-                    output = "Output: " + runCommand.Result;
-                    Debug.WriteLine($"Output: {output}");
-                }
-                catch (Exception ex)
-                {
-                    output = "Error: " + ex.Message;
-                    Debug.WriteLine(output);
-                }
-                finally
-                {
-                    if (client.IsConnected)
-                    {
-                        client.Disconnect();
-                    }
-                }
-                return output;
+                Debug.WriteLine("output indicates that we need send password");
+                shell.WriteLine(password);
+                await Task.Delay(1000);
+                output = await reader.ReadToEndAsync();
             }
-            
+
+            _client.Disconnect();
+
+            return output;
         }
     }
 }
