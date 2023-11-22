@@ -9,8 +9,6 @@ string[] config = configLoader.LoadConfig();
 
 Debug.WriteLine(config);
 
-Ssh ssh = new Ssh();
-
 foreach (string prvek in config)
 {
     Debug.WriteLine(prvek);
@@ -49,6 +47,8 @@ else
 Console.Write("Password: ");
 string password = ShowStars();
 Console.WriteLine();
+
+var ssh = new Ssh(hostname, username, password);
 
 string output = string.Empty;
 
@@ -102,7 +102,7 @@ while (input != "0")
     {
         Console.Clear();
         Console.WriteLine("Running command");
-        output = ssh.Command(hostname, username, password, config[int.Parse(input)*2+1]);
+        output = ssh.ExecuteCommand(config[int.Parse(input) * 2 + 1], password).Result;
         Console.WriteLine(output);
         Console.WriteLine("------------------------");
     }
