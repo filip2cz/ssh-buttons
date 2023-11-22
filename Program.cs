@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using ssh_buttons_console_demo;
 
+string ver = "v0.1";
+
 Config configLoader = new Config();
 
 string[] config = configLoader.LoadConfig();
@@ -15,6 +17,7 @@ foreach (string prvek in config)
 }
 
 Console.WriteLine("SSH Buttons - test console version");
+Console.WriteLine($"Version {ver}");
 Console.WriteLine("Created by Filip Komárek");
 Console.WriteLine("https://github.com/filip2cz/ssh-buttons");
 Console.WriteLine();
