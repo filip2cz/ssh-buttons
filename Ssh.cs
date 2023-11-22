@@ -25,8 +25,6 @@ public class Ssh
 
             await Task.Delay(1000);
 
-            shell.WriteLine(password);
-
             string output = await reader.ReadToEndAsync();
             Debug.WriteLine(output);
 
