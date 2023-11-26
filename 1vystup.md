@@ -17,7 +17,7 @@ V rámci prvního výstupu jsem vypracoval konzolovou aplikaci, která je protot
 V rámci tohoto kódu jsou hlavní 3 soubory: Program.cs, Config.cs a Ssh.cs.
 
 Program.cs obsahuje kód specifický pro tuto testovací verzi,
-zatím co Config.cs a Ssh.cs jsou univerzální a budoucí grafická verze aplikace je zdění.
+zatím co Config.cs a Ssh.cs jsou univerzální a budoucí grafická verze aplikace je zdědí.
 
 Pomocí Config.cs si program načte nastavení z konfiguračního souboru config.json. Aktuálně jde ovšem o pořadí prvků v konfiguračním souboru,
 a ne o jejich název, což jde proti filozofii JSON formátu a je třeba na tom ještě zapracovat.
