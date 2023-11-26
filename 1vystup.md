@@ -1,24 +1,65 @@
-# SSH-Buttons - První vıstup
-Filip Komárek, 4.C  
+# SSH-Buttons - PrvnÃ­ vÃ½stup
+Filip KomÃ¡rek, 4.C  
 26. listopadu 2023
 
-Repozitáø s kódem relevantnímu k tomuto vıstupu: [https://github.com/filip2cz/ssh-buttons/tree/1vystup](https://github.com/filip2cz/ssh-buttons/tree/1vystup)
+RepozitÃ¡Å™ s kÃ³dem relevantnÃ­mu k tomuto vÃ½stupu: [https://github.com/filip2cz/ssh-buttons/tree/1vystup](https://github.com/filip2cz/ssh-buttons/tree/1vystup)
 
-Spustitelnı soubor releventní k tomuto vıstupu: [https://github.com/filip2cz/ssh-buttons/releases/tag/v0.1](https://github.com/filip2cz/ssh-buttons/releases/tag/v0.1) (soubor [ssh-buttons.zip](https://github.com/filip2cz/ssh-buttons/releases/download/v0.1/ssh-buttons.zip))
+SpustitelnÃ½ soubor releventnÃ­ k tomuto vÃ½stupu: [https://github.com/filip2cz/ssh-buttons/releases/tag/v0.1](https://github.com/filip2cz/ssh-buttons/releases/tag/v0.1) (soubor [ssh-buttons.zip](https://github.com/filip2cz/ssh-buttons/releases/download/v0.1/ssh-buttons.zip))
 
-V rámci prvního vıstupu jsem vypracoval konzolovou aplikaci, která je prototypem budoucí grafické aplikace ve WPF.
-V rámci tohoto kódu jsou hlavní 3 soubory: Program.cs, Config.cs a Ssh.cs.
+V rÃ¡mci prvnÃ­ho vÃ½stupu jsem vypracoval konzolovou aplikaci, kterÃ¡ je prototypem budoucÃ­ grafickÃ© aplikace ve WPF.
+V rÃ¡mci tohoto kÃ³du jsou hlavnÃ­ 3 soubory: Program.cs, Config.cs a Ssh.cs.
 
-Program.cs obsahuje kód specifickı pro tuto testovací verzi,
-zatím co Config.cs a Ssh.cs jsou univerzální a budoucí grafická verze aplikace je zdìní.
+Program.cs obsahuje kÃ³d specifickÃ½ pro tuto testovacÃ­ verzi,
+zatÃ­m co Config.cs a Ssh.cs jsou univerzÃ¡lnÃ­ a budoucÃ­ grafickÃ¡ verze aplikace je zdÄ›nÃ­.
 
-Pomocí Config.cs si program naète nastavení z konfiguraèního souboru config.json. Aktuálnì jde ovšem o poøadí prvkù v konfiguraèním souboru,
-a ne o jejich název, co jde proti filozofii JSON formátu a je tøeba na tom ještì zapracovat.
+PomocÃ­ Config.cs si program naÄte nastavenÃ­ z konfiguraÄnÃ­ho souboru config.json. AktuÃ¡lnÄ› jde ovÅ¡em o poÅ™adÃ­ prvkÅ¯ v konfiguraÄnÃ­m souboru,
+a ne o jejich nÃ¡zev, coÅ¾ jde proti filozofii JSON formÃ¡tu a je tÅ™eba na tom jeÅ¡tÄ› zapracovat.
 
-Pomocí Ssh.cs se program pøipojí k SSH serveru na adrese, kterou mu hlavní èást programu (Program.cs) pøedá a po té vykoná pøíkaz, jen
-mu tato hlavní èást programu pøedá ve stejnı moment. Po dokonèení pøíkazu se odpojí. Zatím se mi bohuel nepodaøilo zprostøedkovat
-vstup pro uivatele v pøípadì, e bude pøíkaz vyadovat heslo (napø. pro sudo oprávnìní). V rámci tohoto vznikla alternativní funkce
-Ssh.cs, jen prozatím není souèástí hlavního kódu a je moné ji najít v branchi [ssh-async](https://github.com/filip2cz/ssh-buttons/blob/ssh-async/Ssh.cs) v repozitáøi.
+UkÃ¡zka kÃ³du naÄÃ­tajÃ­cÃ­ho konfiguraÄnÃ­ soubor:
+```
+string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
+string json = File.ReadAllText(filePath);
+JObject jsonObject = JObject.Parse(json);
+string[] loadedCommands = jsonObject.Properties().Select(p => p.Value.ToString()).ToArray();
+return loadedCommands;
+```
 
-Program.cs obsahuje základní terminálové rozhraní pro ovládání této testovací verze, její souèástí je to e vypíše tolik moností,
-kolik mu øekne vıstup z funkce Config.cs, neboli teoreticky nekoneènì mnoho, omezeno vıkonem poèítaèe.
+PomocÃ­ Ssh.cs se program pÅ™ipojÃ­ k SSH serveru na adrese, kterou mu hlavnÃ­ ÄÃ¡st programu (Program.cs) pÅ™edÃ¡ a po tÃ© vykonÃ¡ pÅ™Ã­kaz, jenÅ¾
+mu tato hlavnÃ­ ÄÃ¡st programu pÅ™edÃ¡ ve stejnÃ½ moment. Po dokonÄenÃ­ pÅ™Ã­kazu se odpojÃ­. ZatÃ­m se mi bohuÅ¾el nepodaÅ™ilo zprostÅ™edkovat
+vstup pro uÅ¾ivatele v pÅ™Ã­padÄ›, Å¾e bude pÅ™Ã­kaz vyÅ¾adovat heslo (napÅ™. pro sudo oprÃ¡vnÄ›nÃ­). V rÃ¡mci tohoto vznikla alternativnÃ­ funkce
+Ssh.cs, jenÅ¾ prozatÃ­m nenÃ­ souÄÃ¡stÃ­ hlavnÃ­ho kÃ³du a je moÅ¾nÃ© ji najÃ­t v branchi [ssh-async](https://github.com/filip2cz/ssh-buttons/blob/ssh-async/Ssh.cs) v repozitÃ¡Å™i.
+
+ÄŒÃ¡st kÃ³du zodpovÄ›dnÃ¡ za pÅ™ipojovÃ¡nÃ­ se k SSH serveru a odesÃ­lÃ¡nÃ­ pÅ™Ã­kazu:
+```
+ConnectionInfo connectionInfo = new ConnectionInfo(hostname, username, new PasswordAuthenticationMethod(username, password));
+string output = string.Empty;
+using (var client = new SshClient(connectionInfo))
+{
+   client.Connect();
+   var runCommand = client.RunCommand(command);
+   output = "Output: " + runCommand.Result;
+   Debug.WriteLine($"Output: {output}");
+}
+```
+
+Program.cs obsahuje zÃ¡kladnÃ­ terminÃ¡lovÃ© rozhranÃ­ pro ovlÃ¡dÃ¡nÃ­ tÃ©to testovacÃ­ verze, jejÃ­Å¾ souÄÃ¡stÃ­ je to Å¾e vypÃ­Å¡e tolik moÅ¾nostÃ­,
+kolik mu Å™ekne vÃ½stup z funkce Config.cs, neboli teoreticky nekoneÄnÄ› mnoho, omezeno vÃ½konem poÄÃ­taÄe.
+
+UkÃ¡zka aktuÃ¡lnÃ­ho ovlÃ¡dÃ¡nÃ­ programu:
+```
+SSH Buttons - test console version
+Version v0.1
+Created by Filip KomÃ¡rek
+https://github.com/filip2cz/ssh-buttons
+
+Server hostname: example.com
+Username: user
+Password: ********
+[1] SpuÅ¡tÄ›nÃ­ serveru
+[2] ZastavenÃ­ serveru
+[3] Restart serveru
+[4] Seznam nainstalovanÃ½ch pluginÅ¯
+[5] Seznam uÅ¾ivatelÅ¯ online
+[0] exit
+Choose command:
+```
