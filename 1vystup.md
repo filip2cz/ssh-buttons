@@ -1,3 +1,10 @@
+<!-- 
+
+Pokud nemáte program na otevření tohoto souboru v čitelném formátu, použijte následující odkaz:
+https://github.com/filip2cz/ssh-buttons/blob/1vystup/1vystup.md
+
+-->
+
 # SSH-Buttons - První výstup
 Filip Komárek, 4.C  
 26. listopadu 2023
