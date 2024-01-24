@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="..\ssh-buttons_console\Config.cs" Link="Config.cs" />
     <Compile Include="..\ssh-buttons_console\Ssh.cs" Link="Ssh.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SSH.NET" Version="2023.0.0" />
   </ItemGroup>
 
 </Project>
