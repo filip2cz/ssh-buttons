@@ -8,4 +8,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\ssh-buttons_console\Config.cs" Link="Config.cs" />
+    <Compile Include="..\ssh-buttons_console\Ssh.cs" Link="Ssh.cs" />
+  </ItemGroup>
+
 </Project>
