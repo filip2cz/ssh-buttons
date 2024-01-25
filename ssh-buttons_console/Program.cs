@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using ssh_buttons_console_demo;
+using ssh_buttons_console;
 
 string ver = "v0.2";
 

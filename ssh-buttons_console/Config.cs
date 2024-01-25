@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ssh_buttons_console_demo
+namespace ssh_buttons_console
 {
     public partial class Config
     {
