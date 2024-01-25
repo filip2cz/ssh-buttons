@@ -23,7 +23,7 @@ foreach (string prvek in config)
     Debug.WriteLine(prvek);
 }
 
-Console.WriteLine("SSH Buttons - test console version");
+Console.WriteLine("SSH Buttons - console version");
 Console.WriteLine($"Version {ver}");
 Console.WriteLine("Created by Filip Komárek");
 Console.WriteLine("https://github.com/filip2cz/ssh-buttons");
