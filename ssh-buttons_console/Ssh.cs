@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Renci.SshNet;
 using SshNet;
 
-namespace ssh_buttons_console_demo
+namespace ssh_buttons_console
 {
     public partial class Ssh
     {
