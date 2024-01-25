@@ -37,7 +37,10 @@
             <Button Click="Button_Click8" Grid.Column="3" Content="Button8 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="70"/>
         </Grid>
         <Grid Grid.Row="2">
-            <Label Content="Grid3"/>
+            <Label Content="SSH-Buttons"/>
+            <Label Content="Created by Filip Komárek" Padding="5px, 20px, 0px, 0px"/>
+            <Label Content="Version: v0.3" Padding="5px, 35px, 0px, 0px"/>
+            <Label Content="Waiting for command" Padding="5px, 50px, 0px, 0px"/>
         </Grid>
     </Grid>
         
