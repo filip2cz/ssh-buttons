@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ssh_buttons_console;
 
 namespace ssh_buttons_desktop
 {
@@ -24,6 +25,24 @@ namespace ssh_buttons_desktop
         public MainWindow()
         {
             InitializeComponent();
+            Config configLoader = new Config();
+            string[] config = configLoader.LoadConfig();
+
+            if (config[0] == "error")
+            {
+                Debug.WriteLine("Error loading config file:");
+                Debug.WriteLine(config[2]);
+            }
+
+            Ssh ssh = new Ssh();
+
+            Debug.WriteLine("Loaded config:");
+            foreach (string prvek in config)
+            {
+                Debug.WriteLine(prvek);
+            }
+
+
         }
         public void Button_Click1(object sender, RoutedEventArgs e)
         {
