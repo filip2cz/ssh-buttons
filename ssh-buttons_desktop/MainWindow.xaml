@@ -26,9 +26,16 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Loaded Config:" FontSize="28"/>
-                <Label x:Name="loadedConfigHostname" Grid.Row="1" Grid.Column="0" Content="Hostname: Unknown"/>
-                <Label x:Name="loadedConfigUsername" Grid.Row="1" Grid.Column="1" Content="Username: Unknown"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="Configuration:" FontSize="28"/>
+                
+                <Label Grid.Row="0" Grid.Column="1" Content="Hostname / IP" FontSize="28"/>
+                <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="20"/>
+
+                <Label Grid.Row="0" Grid.Column="2" Content="Username" FontSize="28"/>
+                <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="20"/>
+
+                <Label Grid.Row="0" Grid.Column="3" Content="Password" FontSize="28"/>
+                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
@@ -62,10 +69,7 @@
             <Button x:Name="Button8" Click="Button_Click8" Grid.Column="3" Content="Button8 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
         </Grid>
         <Grid Grid.Row="3">
-            <Label Content="SSH-Buttons"/>
-            <Label Content="Created by Filip Komárek" Padding="5px, 20px, 0px, 0px"/>
-            <Label Content="Version: v0.3" Padding="5px, 35px, 0px, 0px"/>
-            <Label Content="Waiting for command" Padding="5px, 50px, 0px, 0px"/>
+            <TextBlock x:Name="output" TextWrapping="Wrap" Margin="5 0 0 0" Text="Loading..."/>
         </Grid>
     </Grid>
         

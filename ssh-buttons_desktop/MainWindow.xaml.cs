@@ -24,10 +24,16 @@ namespace ssh_buttons_desktop
     {
         Config configLoader = new Config();
         string[] commands;
+
+        Ssh ssh = new Ssh();
+
+
         public MainWindow()
         {
             InitializeComponent();
             int i;
+
+            output.Text = "SSH-Buttons\r\nCreated by Filip Komárek\r\nVersion: v0.3\r\nWaiting for command...";
 
             string[] config = configLoader.LoadConfig();
 
@@ -43,9 +49,16 @@ namespace ssh_buttons_desktop
                 {
                     Debug.WriteLine(thing);
                 }
+            }
 
-                loadedConfigHostname.Content = $"Hostname: {config[1]}";
-                loadedConfigUsername.Content = $"Username: {config[2]}";
+            if (config[1] != "askUser")
+            {
+                hostname.Text = config[1];
+            }
+
+            if (config[2] != "askUser")
+            {
+                username.Text = config[2];
             }
 
             commands = configLoader.LoadCommands();
@@ -66,40 +79,46 @@ namespace ssh_buttons_desktop
             Button6.Content = commands[10];
             Button7.Content = commands[12];
             Button8.Content = commands[14];
-
-            Ssh ssh = new Ssh();
         }
         public void Button_Click1(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[1]}");
+            output.Text = $"Executing command {commands[1]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[1]);
         }
         public void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[3]}");
+            output.Text = $"Executing command {commands[3]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[3]);
         }
         public void Button_Click3(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[5]}");
+            output.Text = $"Executing command {commands[5]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[5]);
         }
         public void Button_Click4(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[7]}");
+            output.Text = $"Executing command {commands[7]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[7]);
         }
         public void Button_Click5(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[9]}");
+            output.Text = $"Executing command {commands[9]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[9]);
         }
         public void Button_Click6(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[11]}");
+            output.Text = $"Executing command {commands[11]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[11]);
         }
         public void Button_Click7(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[13]}");
+            output.Text = $"Executing command {commands[13]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[13]);
         }
         public void Button_Click8(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"Execute command {commands[15]}");
+            output.Text = $"Executing command {commands[15]}";
+            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[15]);
         }
     }
 }
