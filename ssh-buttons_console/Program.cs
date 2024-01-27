@@ -86,9 +86,9 @@ while (input != "0")
             z = false;
         }
     }
-    inputMaxLenght--;
     y = default(int);
 
+    Console.WriteLine($"[{inputMaxLenght}] Custom command");
     Console.WriteLine("[0] exit");
 
     Console.Write("Choose command: ");
@@ -111,11 +111,20 @@ while (input != "0")
         Console.WriteLine("Exiting");
         Debug.WriteLine("Exiting");
     }
-    else if (int.Parse(input) <= inputMaxLenght)
+    else if (int.Parse(input) < inputMaxLenght)
     {
         Console.Clear();
-        Console.WriteLine("Running command");
+        Console.WriteLine($"Running command: {commands[int.Parse(input) * 2 - 1]}");
         output = ssh.Command(hostname, username, password, commands[int.Parse(input)*2-1]);
+        Console.WriteLine(output);
+        Console.WriteLine("------------------------");
+    }
+    else if (int.Parse(input) == inputMaxLenght)
+    {
+        Console.Write("Enter custom command: ");
+
+        output = ssh.Command(hostname, username, password, Console.ReadLine());
+        Console.Clear();
         Console.WriteLine(output);
         Console.WriteLine("------------------------");
     }
