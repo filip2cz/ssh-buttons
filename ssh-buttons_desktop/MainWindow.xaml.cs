@@ -78,47 +78,102 @@ namespace ssh_buttons_desktop
             Button5.Content = commands[8];
             Button6.Content = commands[10];
             Button7.Content = commands[12];
-            Button8.Content = commands[14];
         }
         public void Button_Click1(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[1]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[1]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[1]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[1]);
+            }
         }
         public void Button_Click2(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[3]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[3]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[3]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[3]);
+            }
         }
         public void Button_Click3(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[5]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[5]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[5]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[5]);
+            }
         }
         public void Button_Click4(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[7]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[7]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[7]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[7]);
+            }
         }
         public void Button_Click5(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[9]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[9]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[9]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[9]);
+            }
         }
         public void Button_Click6(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[11]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[11]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[11]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[11]);
+            }
         }
         public void Button_Click7(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[13]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[13]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {commands[13]}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[13]);
+            }
         }
-        public void Button_Click8(object sender, RoutedEventArgs e)
+        public void Button_Click_Custom(object sender, RoutedEventArgs e)
         {
-            output.Text = $"Executing command {commands[15]}";
-            output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[15]);
+            if (hostname.Text == string.Empty)
+            {
+                output.Text = "Error: empty hostname";
+            }
+            else
+            {
+                output.Text = $"Executing command {customCommand.Text}";
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, customCommand.Text);
+            }
         }
     }
 }
