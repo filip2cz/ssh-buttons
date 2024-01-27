@@ -22,10 +22,13 @@ namespace ssh_buttons_desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        Config configLoader = new Config();
+        string[] commands;
         public MainWindow()
         {
             InitializeComponent();
-            Config configLoader = new Config();
+            int i;
+
             string[] config = configLoader.LoadConfig();
 
             if (config[0] == "error")
@@ -33,48 +36,70 @@ namespace ssh_buttons_desktop
                 Debug.WriteLine("Error loading config file:");
                 Debug.WriteLine(config[2]);
             }
-
-            Ssh ssh = new Ssh();
-
-            Debug.WriteLine("Loaded config:");
-            foreach (string prvek in config)
+            else
             {
-                Debug.WriteLine(prvek);
+                Debug.WriteLine("Loaded config:");
+                foreach (string thing in config)
+                {
+                    Debug.WriteLine(thing);
+                }
+
+                loadedConfigHostname.Content = $"Hostname: {config[1]}";
+                loadedConfigUsername.Content = $"Username: {config[2]}";
             }
 
+            commands = configLoader.LoadCommands();
 
+            Debug.WriteLine("Loaded commands:");
+
+            Debug.WriteLine("Loaded config:");
+            foreach (string thing in commands)
+            {
+                Debug.WriteLine(thing);
+            }
+
+            Button1.Content = commands[0];
+            Button2.Content = commands[2];
+            Button3.Content = commands[4];
+            Button4.Content = commands[6];
+            Button5.Content = commands[8];
+            Button6.Content = commands[10];
+            Button7.Content = commands[12];
+            Button8.Content = commands[14];
+
+            Ssh ssh = new Ssh();
         }
         public void Button_Click1(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button1 clicked");
+            Debug.WriteLine($"Execute command {commands[1]}");
         }
         public void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button2 clicked");
+            Debug.WriteLine($"Execute command {commands[3]}");
         }
         public void Button_Click3(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button3 clicked");
+            Debug.WriteLine($"Execute command {commands[5]}");
         }
         public void Button_Click4(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button4 clicked");
+            Debug.WriteLine($"Execute command {commands[7]}");
         }
         public void Button_Click5(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button5 clicked");
+            Debug.WriteLine($"Execute command {commands[9]}");
         }
         public void Button_Click6(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button6 clicked");
+            Debug.WriteLine($"Execute command {commands[11]}");
         }
         public void Button_Click7(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button7 clicked");
+            Debug.WriteLine($"Execute command {commands[13]}");
         }
         public void Button_Click8(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button8 clicked");
+            Debug.WriteLine($"Execute command {commands[15]}");
         }
     }
 }

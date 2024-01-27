@@ -12,9 +12,24 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <CheckBox />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Loaded Config:" FontSize="28"/>
+                <Label x:Name="loadedConfigHostname" Grid.Row="1" Grid.Column="0" Content="Hostname: Unknown"/>
+                <Label x:Name="loadedConfigUsername" Grid.Row="1" Grid.Column="1" Content="Username: Unknown"/>
+            </Grid>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -25,18 +40,28 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Click="Button_Click1" Grid.Column="0" Content="Button1 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click2" Grid.Column="1" Content="Button2 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click3" Grid.Column="2" Content="Button3 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click4" Grid.Column="3" Content="Button4 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click5" Grid.Column="0" Content="Button5 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click6" Grid.Column="1" Content="Button6 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click7" Grid.Column="2" Content="Button7 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="70"/>
-            <Button Click="Button_Click8" Grid.Column="3" Content="Button8 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="70"/>
+            <Button x:Name="Button1" Click="Button_Click1" Grid.Column="0" Content="Button1 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button2" Click="Button_Click2" Grid.Column="1" Content="Button2 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button3" Click="Button_Click3" Grid.Column="2" Content="Button3 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button4" Click="Button_Click4" Grid.Column="3" Content="Button4 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
         </Grid>
         <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Button5" Click="Button_Click5" Grid.Column="0" Content="Button5 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button6" Click="Button_Click6" Grid.Column="1" Content="Button6 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button7" Click="Button_Click7" Grid.Column="2" Content="Button7 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
+            <Button x:Name="Button8" Click="Button_Click8" Grid.Column="3" Content="Button8 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
+        </Grid>
+        <Grid Grid.Row="3">
             <Label Content="SSH-Buttons"/>
             <Label Content="Created by Filip Komárek" Padding="5px, 20px, 0px, 0px"/>
             <Label Content="Version: v0.3" Padding="5px, 35px, 0px, 0px"/>
