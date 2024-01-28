@@ -78,13 +78,41 @@ namespace ssh_buttons_desktop
 
             if (commandsLoaded == true)
             {
-                Button1.Content = commands[0];
-                Button2.Content = commands[2];
-                Button3.Content = commands[4];
-                Button4.Content = commands[6];
-                Button5.Content = commands[8];
-                Button6.Content = commands[10];
-                Button7.Content = commands[12];
+                try
+                {
+                    Button1.Content = commands[0];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button2.Content = commands[2];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button3.Content = commands[4];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button4.Content = commands[6];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button5.Content = commands[8];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button6.Content = commands[10];
+                }
+                catch (Exception) { }
+                try
+                {
+                    Button7.Content = commands[12];
+                }
+                catch (Exception) { }
             }
             else
             {
