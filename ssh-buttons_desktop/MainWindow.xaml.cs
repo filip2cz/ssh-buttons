@@ -27,7 +27,6 @@ namespace ssh_buttons_desktop
 
         Ssh ssh = new Ssh();
 
-
         public MainWindow()
         {
             InitializeComponent();
