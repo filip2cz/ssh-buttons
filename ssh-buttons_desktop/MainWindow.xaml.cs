@@ -62,6 +62,12 @@ namespace ssh_buttons_desktop
 
             commands = configLoader.LoadCommands();
 
+            bool commandsLoaded = true;
+            if (commands[1] == "error")
+            {
+                commandsLoaded = false;
+            }
+
             Debug.WriteLine("Loaded commands:");
 
             Debug.WriteLine("Loaded config:");
@@ -70,13 +76,20 @@ namespace ssh_buttons_desktop
                 Debug.WriteLine(thing);
             }
 
-            Button1.Content = commands[0];
-            Button2.Content = commands[2];
-            Button3.Content = commands[4];
-            Button4.Content = commands[6];
-            Button5.Content = commands[8];
-            Button6.Content = commands[10];
-            Button7.Content = commands[12];
+            if (commandsLoaded == true)
+            {
+                Button1.Content = commands[0];
+                Button2.Content = commands[2];
+                Button3.Content = commands[4];
+                Button4.Content = commands[6];
+                Button5.Content = commands[8];
+                Button6.Content = commands[10];
+                Button7.Content = commands[12];
+            }
+            else
+            {
+                output.Text = $"{commands[0]}\r\n{commands[2]}";
+            }
         }
         public void Button_Click1(object sender, RoutedEventArgs e)
         {
