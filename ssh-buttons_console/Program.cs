@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using ssh_buttons_console;
 
-string ver = "v0.3";
+string ver = "v0.4";
 
 Config configLoader = new Config();
 
