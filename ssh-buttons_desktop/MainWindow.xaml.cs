@@ -31,6 +31,9 @@ namespace ssh_buttons_desktop
         public MainWindow()
         {
             InitializeComponent();
+            this.MinWidth = 750;
+            this.MaxWidth = 850;
+
             int i;
 
             output.Text = "SSH-Buttons\r\nCreated by Filip Komárek\r\nVersion: v0.4\r\nWaiting for command...";
@@ -160,6 +163,7 @@ namespace ssh_buttons_desktop
                     RowDefinition rowDefinition = new RowDefinition();
                     rowDefinition.Height = GridLength.Auto;
                     gridButtons.RowDefinitions.Add(rowDefinition);
+                    gridButtons.SetValue(Grid.RowSpanProperty, tmp+1);
                 }
             }
             else
