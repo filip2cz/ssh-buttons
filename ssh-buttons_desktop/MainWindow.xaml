@@ -38,48 +38,29 @@
                 <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20"/>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="gridButtons" Margin="0,0,0,108" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Button x:Name="Button1" Click="Button_Click1" Grid.Column="0" Content="Button1 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Button x:Name="Button2" Click="Button_Click2" Grid.Column="1" Content="Button2 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Button x:Name="Button3" Click="Button_Click3" Grid.Column="2" Content="Button3 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Button x:Name="Button4" Click="Button_Click4" Grid.Column="3" Content="Button4 is empty" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Width="180" Height="85"/>
         </Grid>
-        <Grid Grid.Row="2">
+        <!--
+        <Grid Grid.Column="0"  Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="Button5" Click="Button_Click5" Grid.Column="0" Content="Button5 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Button x:Name="Button6" Click="Button_Click6" Grid.Column="1" Content="Button6 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Button x:Name="Button7" Click="Button_Click7" Grid.Column="2" Content="Button7 is empty" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="85"/>
-            <Grid Grid.Column="3"  Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Custom command" FontSize="23"></Label>
-                <TextBox x:Name="customCommand" Grid.Row="1" Grid.Column="0" Height="20" Width="180"/>
-                <Button Click="Button_Click_Custom" Grid.Row="2" Grid.Column="0" Content="Run custom command" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="25"/>
-            </Grid>
+            <Label Grid.Row="0" Grid.Column="0" Content="Custom command" FontSize="23"></Label>
+            <TextBox x:Name="customCommand" Grid.Row="1" Grid.Column="0" Height="20" Width="180"/>
+            <Button Click="Button_Click_Custom" Grid.Row="2" Grid.Column="0" Content="Run custom command" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="25"/>
         </Grid>
+        -->
         <Grid Grid.Row="3" Background="Black">
             <TextBlock x:Name="output" TextWrapping="Wrap" Margin="5 0 0 0" Text="Loading..." Foreground="White"/>
         </Grid>

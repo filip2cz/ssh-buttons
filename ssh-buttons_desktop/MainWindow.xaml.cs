@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -76,6 +77,7 @@ namespace ssh_buttons_desktop
                 Debug.WriteLine(thing);
             }
 
+            /*
             if (commandsLoaded == true)
             {
                 try
@@ -118,8 +120,55 @@ namespace ssh_buttons_desktop
             {
                 output.Text = $"{commands[0]}\r\n{commands[2]}";
             }
+            */
+
+            if (commandsLoaded == true)
+            {
+                int howManyButtons = commands.Length/2;
+                int columns = 4;
+                int buttonContent = 0;
+
+                i = 0;
+
+                while (i < howManyButtons)
+                {
+                    try
+                    {
+                        int index = i;
+
+                        Button button = new Button();
+                        button.Content = commands[buttonContent];
+                        buttonContent += 2;
+                        button.Width = 180;
+                        button.Height = 85;
+
+                        button.Click += (sender, e) => Button_Click(index);
+
+                        gridButtons.Children.Add(button);
+                        Grid.SetColumn(button, i % columns);
+                        Grid.SetRow(button, i / columns);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                    i++;
+                }
+
+                for (int tmp = 0; tmp < (int)Math.Ceiling((double)howManyButtons / columns); tmp++)
+                {
+                    RowDefinition rowDefinition = new RowDefinition();
+                    rowDefinition.Height = GridLength.Auto;
+                    gridButtons.RowDefinitions.Add(rowDefinition);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"{commands[0]}\r\n{commands[2]} \r\n\r\nDoes commands.txt exists?");
+                output.Text = $"{commands[0]}\r\n{commands[2]}";
+            }
         }
-        public void Button_Click1(object sender, RoutedEventArgs e)
+        public void Button_Click(int index)
         {
             if (hostname.Text == string.Empty)
             {
@@ -127,82 +176,11 @@ namespace ssh_buttons_desktop
             }
             else
             {
-                output.Text = $"Executing command {commands[1]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[1]);
+                Debug.WriteLine($"Executing command {commands[(index+1)*2-1]}");
+                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[(index + 1) * 2 - 1]);
             }
         }
-        public void Button_Click2(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[3]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[3]);
-            }
-        }
-        public void Button_Click3(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[5]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[5]);
-            }
-        }
-        public void Button_Click4(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[7]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[7]);
-            }
-        }
-        public void Button_Click5(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[9]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[9]);
-            }
-        }
-        public void Button_Click6(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[11]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[11]);
-            }
-        }
-        public void Button_Click7(object sender, RoutedEventArgs e)
-        {
-            if (hostname.Text == string.Empty)
-            {
-                output.Text = "Error: empty hostname";
-            }
-            else
-            {
-                output.Text = $"Executing command {commands[13]}";
-                output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[13]);
-            }
-        }
+        /*
         public void Button_Click_Custom(object sender, RoutedEventArgs e)
         {
             if (hostname.Text == string.Empty)
@@ -215,5 +193,6 @@ namespace ssh_buttons_desktop
                 output.Text = ssh.Command(hostname.Text, username.Text, password.Password, customCommand.Text);
             }
         }
+        */
     }
 }
