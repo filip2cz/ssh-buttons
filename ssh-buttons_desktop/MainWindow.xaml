@@ -66,11 +66,13 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Custom command" FontSize="21"></Label>
                 <TextBox x:Name="customCommand" Grid.Row="1" Grid.Column="0" Height="20" Width="170"/>
                 <Button Click="Button_Click_Custom" Grid.Row="2" Grid.Column="0" Content="Run custom command" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="25"/>
+                <Label x:Name="customCommandWarning" Grid.Row="3" Grid.Column="0" Content="Warning placeholder" FontSize="11"></Label>
             </Grid>
         </Grid>
     </Grid>
