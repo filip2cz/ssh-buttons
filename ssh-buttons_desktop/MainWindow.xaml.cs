@@ -32,9 +32,7 @@ namespace ssh_buttons_desktop
         {
             InitializeComponent();
             this.MinWidth = 760;
-            this.MaxWidth = 850;
             this.MinHeight = 360;
-            this.MaxHeight = SystemParameters.PrimaryScreenHeight - 30;
 
             int i;
 
