@@ -81,51 +81,6 @@ namespace ssh_buttons_desktop
                 Debug.WriteLine(thing);
             }
 
-            /*
-            if (commandsLoaded == true)
-            {
-                try
-                {
-                    Button1.Content = commands[0];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button2.Content = commands[2];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button3.Content = commands[4];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button4.Content = commands[6];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button5.Content = commands[8];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button6.Content = commands[10];
-                }
-                catch (Exception) { }
-                try
-                {
-                    Button7.Content = commands[12];
-                }
-                catch (Exception) { }
-            }
-            else
-            {
-                output.Text = $"{commands[0]}\r\n{commands[2]}";
-            }
-            */
-
             if (commandsLoaded == true)
             {
                 int howManyButtons = commands.Length/2;
