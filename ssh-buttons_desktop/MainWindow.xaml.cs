@@ -31,8 +31,9 @@ namespace ssh_buttons_desktop
         public MainWindow()
         {
             InitializeComponent();
-            this.MinWidth = 750;
+            this.MinWidth = 760;
             this.MaxWidth = 850;
+            this.MinHeight = 360;
 
             int i;
 
@@ -144,6 +145,7 @@ namespace ssh_buttons_desktop
                         buttonContent += 2;
                         button.Width = 180;
                         button.Height = 85;
+                        button.Margin = new Thickness(0, 0, 0, 10);
 
                         button.Click += (sender, e) => Button_Click(index);
 
