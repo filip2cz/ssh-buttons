@@ -141,7 +141,6 @@ namespace ssh_buttons_desktop
                 output.Text = ssh.Command(hostname.Text, username.Text, password.Password, commands[(index + 1) * 2 - 1]);
             }
         }
-        /*
         public void Button_Click_Custom(object sender, RoutedEventArgs e)
         {
             if (hostname.Text == string.Empty)
@@ -154,6 +153,5 @@ namespace ssh_buttons_desktop
                 output.Text = ssh.Command(hostname.Text, username.Text, password.Password, customCommand.Text);
             }
         }
-        */
     }
 }
