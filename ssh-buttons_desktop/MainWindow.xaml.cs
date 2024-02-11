@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -120,7 +121,17 @@ namespace ssh_buttons_desktop
         private void GenerateGridButtons()
         {
             int howManyButtons = commands.Length / 2;
-            int columns = Convert.ToInt32(this.Width / 180);
+            int columns;
+
+            if (WindowState == WindowState.Maximized)
+            {
+                columns = Convert.ToInt32(SystemParameters.PrimaryScreenWidth / 180);
+            }
+            else
+            {
+                columns = Convert.ToInt32(this.Width / 180);
+            }
+
             Debug.WriteLine($"columns = {columns}");
             int buttonContent = 0;
 
