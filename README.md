@@ -2,7 +2,10 @@
 GUI app (GUI in the future) which allows you tu run commands over ssh just with buttons.
 
 ## Configuration files
-They are two config files. If you are using older version, below are config examples for older versions
+They are two config files.
+
+> [!IMPORTANT]  
+> If you are using older version, below are config examples for older versions
 
 ### config.json
 In config.json, you can set hostname and username for ssh connection.
