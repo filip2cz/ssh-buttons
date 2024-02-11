@@ -35,7 +35,7 @@ namespace ssh_buttons_desktop
 
             int i;
 
-            output.Text = "SSH-Buttons\r\nCreated by Filip Komárek\r\nVersion: v0.4\r\nWaiting for command...";
+            output.Text = "SSH-Buttons\r\nCreated by Filip Komárek\r\nVersion: v0.5\r\nWaiting for command...";
             customCommandWarning.Content = "Warning: you should know\r\nwhat are you doing to use this!";
 
             string[] config = configLoader.LoadConfig();
