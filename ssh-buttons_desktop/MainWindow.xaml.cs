@@ -83,44 +83,7 @@ namespace ssh_buttons_desktop
 
             if (commandsLoaded == true)
             {
-                int howManyButtons = commands.Length/2;
-                int columns = 4;
-                int buttonContent = 0;
-
-                i = 0;
-
-                while (i < howManyButtons)
-                {
-                    try
-                    {
-                        int index = i;
-
-                        Button button = new Button();
-                        button.Content = commands[buttonContent];
-                        buttonContent += 2;
-                        button.Height = 85;
-                        button.Margin = new Thickness(5);
-
-                        button.Click += (sender, e) => Button_Click(index);
-
-                        gridButtons.Children.Add(button);
-                        Grid.SetColumn(button, i % columns);
-                        Grid.SetRow(button, i / columns);
-                    }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
-                    i++;
-                }
-
-                for (int tmp = 0; tmp < (int)Math.Ceiling((double)howManyButtons / columns); tmp++)
-                {
-                    RowDefinition rowDefinition = new RowDefinition();
-                    rowDefinition.Height = GridLength.Auto;
-                    gridButtons.RowDefinitions.Add(rowDefinition);
-                    gridButtons.SetValue(Grid.RowSpanProperty, tmp+1);
-                }
+                GenerateGridButtons();
             }
             else
             {
@@ -150,6 +113,71 @@ namespace ssh_buttons_desktop
             {
                 output.Text = $"Executing command {customCommand.Text}";
                 output.Text = ssh.Command(hostname.Text, username.Text, password.Password, customCommand.Text);
+            }
+        }
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            UpdateGridButtons();
+        }
+        private void GenerateGridButtons()
+        {
+            int howManyButtons = commands.Length / 2;
+            int columns = Convert.ToInt32(this.Width / 180);
+            Debug.WriteLine($"columns = {columns}");
+            int buttonContent = 0;
+
+            int i = 0;
+
+            while (i < howManyButtons)
+            {
+                try
+                {
+                    int index = i;
+
+                    Button button = new Button();
+
+                    button.Content = commands[buttonContent];
+                    buttonContent += 2;
+
+                    button.Height = 85;
+                    button.Margin = new Thickness(5);
+
+                    button.Click += (sender, e) => Button_Click(index);
+
+                    gridButtons.Children.Add(button);
+                    Grid.SetColumn(button, i % columns);
+                    Grid.SetRow(button, i / columns);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                i++;
+            }
+
+            for (int tmp = 0; tmp < (int)Math.Ceiling((double)howManyButtons / columns); tmp++)
+            {
+                RowDefinition rowDefinition = new RowDefinition();
+                rowDefinition.Height = GridLength.Auto;
+                gridButtons.RowDefinitions.Add(rowDefinition);
+                gridButtons.SetValue(Grid.RowSpanProperty, tmp + 1);
+            }
+
+            for (int tmp = 0; tmp < columns; tmp++)
+            {
+                ColumnDefinition columnDefinition = new ColumnDefinition();
+                gridButtons.ColumnDefinitions.Add(columnDefinition);
+                gridButtons.SetValue(Grid.ColumnSpanProperty, tmp + 1);
+            }
+        }
+        private void UpdateGridButtons()
+        {
+            gridButtons.Children.Clear();
+            gridButtons.RowDefinitions.Clear();
+            gridButtons.ColumnDefinitions.Clear();
+            if (commands[1] != "error")
+            {
+                GenerateGridButtons();
             }
         }
     }

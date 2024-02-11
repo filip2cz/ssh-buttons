@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ssh_buttons_desktop"
         mc:Ignorable="d"
-        Title="SSH-Buttons" Height="450" Width="800">
+        Title="SSH-Buttons" Height="445" Width="800"
+        SizeChanged="Window_SizeChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -39,12 +40,6 @@
         </Grid>
         <ScrollViewer Grid.Row="1">
             <Grid x:Name="gridButtons">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
             </Grid>
         </ScrollViewer>
         <Grid Grid.Row="3">
