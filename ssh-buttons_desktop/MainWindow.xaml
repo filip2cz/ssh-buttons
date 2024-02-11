@@ -55,8 +55,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="1" Background="Black">
-                <TextBlock x:Name="output" TextWrapping="Wrap" Margin="5 0 0 0" Text="Loading..." Foreground="White"/>
+            <Grid Grid.Row="1">
+                <!-- <TextBlock x:Name="output" TextWrapping="Wrap" Margin="5 0 0 0" Text="Loading..." Foreground="White" FontFamily="Consolas"/> -->
+                <TextBox Background="Black" x:Name="output" TextWrapping="Wrap" Margin="0 0 0 0" Text="Loading..." Foreground="White" FontFamily="Consolas" BorderThickness="0" SelectionBrush="LightGray" SelectionOpacity="0.5" IsReadOnly="True"/>
             </Grid>
 
             <Grid Grid.Column="2">
