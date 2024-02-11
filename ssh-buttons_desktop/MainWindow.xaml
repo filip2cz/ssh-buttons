@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ssh_buttons_desktop"
         mc:Ignorable="d"
-        Title="SSH-Buttons" Height="445" Width="800"
-        SizeChanged="Window_SizeChanged">
+        Title="SSH-Buttons"
+        SizeChanged="Window_SizeChanged"
+        Height="435" Width="800"
+        MinHeight="340" MinWidth="556">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85"/>
+            <RowDefinition Height="73"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
@@ -26,15 +28,15 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Configuration:" FontSize="28"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="Configuration" FontSize="20"/>
                 
-                <Label Grid.Row="0" Grid.Column="1" Content="Hostname / IP" FontSize="28"/>
+                <Label Grid.Row="0" Grid.Column="1" Content="Hostname / IP" FontSize="20"/>
                 <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="20"/>
 
-                <Label Grid.Row="0" Grid.Column="2" Content="Username" FontSize="28"/>
+                <Label Grid.Row="0" Grid.Column="2" Content="Username" FontSize="20"/>
                 <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="20"/>
 
-                <Label Grid.Row="0" Grid.Column="3" Content="Password" FontSize="28"/>
+                <Label Grid.Row="0" Grid.Column="3" Content="Password" FontSize="20"/>
                 <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20"/>
             </Grid>
         </Grid>

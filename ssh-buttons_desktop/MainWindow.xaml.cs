@@ -31,8 +31,6 @@ namespace ssh_buttons_desktop
         public MainWindow()
         {
             InitializeComponent();
-            this.MinWidth = 755;
-            this.MinHeight = 350;
 
             int i;
 
