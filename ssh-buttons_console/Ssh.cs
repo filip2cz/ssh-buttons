@@ -23,12 +23,12 @@ namespace ssh_buttons_console
                     client.Connect();
 
                     var runCommand = client.RunCommand(command);
-                    output = "Output: " + runCommand.Result;
-                    Debug.WriteLine($"Output: {output}");
+                    output = runCommand.Result;
+                    Debug.WriteLine($"[Ssh.cs] Output: {output}");
                 }
                 catch (Exception ex)
                 {
-                    output = "Error: " + ex.Message;
+                    output = "[Ssh.cs] Error: " + ex.Message;
                     Debug.WriteLine(output);
                 }
                 finally
