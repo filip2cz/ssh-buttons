@@ -32,13 +32,13 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="Configuration" FontSize="20"/>
                 
                 <Label Grid.Row="0" Grid.Column="1" Content="Hostname / IP" FontSize="20"/>
-                <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="20" Margin="5,0,5,0"/>
+                <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="26" Margin="5,0,5,0"/>
 
                 <Label Grid.Row="0" Grid.Column="2" Content="Username" FontSize="20"/>
-                <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="20" Margin="5,0,5,0"/>
+                <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="26" Margin="5,0,5,0"/>
 
                 <Label Grid.Row="0" Grid.Column="3" Content="Password" FontSize="20"/>
-                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20" Margin="5,0,5,0"/>
+                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="26" Margin="5,0,17,0"/>
             </Grid>
         </Grid>
         <ScrollViewer Grid.Row="1">
