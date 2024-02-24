@@ -45,7 +45,7 @@ namespace ssh_buttons_console
 
                 string[] loadedConfig = { "success" , hostname , username };
 
-                Debug.WriteLine("[Congig.cs] success");
+                Debug.WriteLine("[Config.cs] success");
                 Debug.WriteLine($"[Congig.cs] hostname = {hostname}");
                 Debug.WriteLine($"[Congig.cs] username = {username}");
 
@@ -55,8 +55,8 @@ namespace ssh_buttons_console
             {
                 string[] loadedConfig = new string[] { "error", "Error: Configuration file was not loaded", ex.Message };
 
-                Debug.WriteLine("[Congig.cs] error");
-                Debug.WriteLine($"[Congig.cs] {ex}");
+                Debug.WriteLine("[Config.cs] error");
+                Debug.WriteLine($"[Config.cs] {ex}");
 
                 return loadedConfig;
             }
@@ -64,8 +64,8 @@ namespace ssh_buttons_console
             {
                 string[] loadedConfig = new string[] { "error", "Error: Configuration file was not loaded", ex.Message };
 
-                Debug.WriteLine("[Congig.cs] error");
-                Debug.WriteLine($"[Congig.cs] {ex}");
+                Debug.WriteLine("[Config.cs] error");
+                Debug.WriteLine($"[Config.cs] {ex}");
 
                 return loadedConfig;
             }
@@ -73,8 +73,8 @@ namespace ssh_buttons_console
             {
                 string[] loadedConfig = new string[] { "error", "Error: Configuration file was not loaded", ex.Message };
 
-                Debug.WriteLine("[Congig.cs] error");
-                Debug.WriteLine($"[Congig.cs] {ex}");
+                Debug.WriteLine("[Config.cs] error");
+                Debug.WriteLine($"[Config.cs] {ex}");
 
                 return loadedConfig;
             }
