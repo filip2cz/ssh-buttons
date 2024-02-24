@@ -7,12 +7,6 @@ Config configLoader = new Config();
 
 string[] config = configLoader.LoadConfig();
 
-if (config[0] == "error")
-{
-    Console.WriteLine("Error loading config file:");
-    Console.WriteLine(config[1]);
-}
-
 Debug.WriteLine(config);
 
 Ssh ssh = new Ssh();
@@ -32,7 +26,7 @@ Console.WriteLine();
 string input = "-1";
 
 string hostname;
-if (config[1] == "askUser")
+if (config[1] == "" || config[0] == "error")
 {
     Console.Write("Server hostname: ");
     hostname = Console.ReadLine();
@@ -45,7 +39,7 @@ else
 Debug.WriteLine($"Hostname: {hostname}");
 
 string username;
-if (config[2] == "askUser")
+if (config[2] == "" || config[0] == "error")
 {
     Console.Write("Username: ");
     username = Console.ReadLine();

@@ -54,13 +54,9 @@ namespace ssh_buttons_desktop
                 }
             }
 
-            if (config[1] != "askUser")
+            if (config[0] != "error")
             {
                 hostname.Text = config[1];
-            }
-
-            if (config[2] != "askUser")
-            {
                 username.Text = config[2];
             }
 
