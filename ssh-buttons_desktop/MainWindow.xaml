@@ -8,7 +8,8 @@
         Title="SSH-Buttons"
         SizeChanged="Window_SizeChanged"
         Height="435" Width="800"
-        MinHeight="340" MinWidth="556">
+        MinHeight="340" MinWidth="556"
+        Background="#FF1F1E1F">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,16 +32,23 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="Configuration" FontSize="20"/>
                 
                 <Label Grid.Row="0" Grid.Column="1" Content="Hostname / IP" FontSize="20"/>
-                <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="20"/>
+                <TextBox x:Name="hostname" Grid.Row="1" Grid.Column="1" Text="" Height="20" Margin="5,0,5,0"/>
 
                 <Label Grid.Row="0" Grid.Column="2" Content="Username" FontSize="20"/>
-                <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="20"/>
+                <TextBox x:Name="username" Grid.Row="1" Grid.Column="2" Text="" Height="20" Margin="5,0,5,0"/>
 
                 <Label Grid.Row="0" Grid.Column="3" Content="Password" FontSize="20"/>
-                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20"/>
+                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="3" Height="20" Margin="5,0,5,0"/>
             </Grid>
         </Grid>
         <ScrollViewer Grid.Row="1">
+            <!--
+            <ScrollViewer.Resources>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Background" Value="#5E5A5B"/>
+                </Style>
+            </ScrollViewer.Resources>
+            -->
             <Grid x:Name="gridButtons">
             </Grid>
         </ScrollViewer>
@@ -69,7 +77,7 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Custom command" FontSize="21"></Label>
                 <TextBox x:Name="customCommand" Grid.Row="1" Grid.Column="0" Height="20" Width="170"/>
-                <Button Click="Button_Click_Custom" Grid.Row="2" Grid.Column="0" Content="Run custom command" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="25"/>
+                <Button Click="Button_Click_Custom" Grid.Row="2" Grid.Column="0" Content="Run custom command" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="25" Foreground="White"/>
                 <Label x:Name="customCommandWarning" Grid.Row="3" Grid.Column="0" Content="Warning placeholder" FontSize="11"></Label>
             </Grid>
         </Grid>
