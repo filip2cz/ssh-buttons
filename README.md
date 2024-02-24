@@ -41,7 +41,6 @@ or
   "username": "user"
 }
 ```
-In this case, program will ask user both hostname and username.
 
 ### Configuration files for older versions
 
