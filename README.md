@@ -44,7 +44,7 @@ or
 
 ### Configuration files for older versions
 
-## Configuration files for v0.2 - v0.5
+## Configuration files from v0.2 to v0.5
 
 ### config.json
 In config.json, you can set hostname and username for ssh connection.
